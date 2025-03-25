@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__logo-nav">
       <div class="header__logo">
-        <img :src="logo" alt="Logo" />
+        <img :src="logo" />
       </div>
       <div class="header__nav-lang">
         <nav class="nav">
@@ -14,12 +14,14 @@
         </nav>
 
         <div class="header__lang-btns">
-          <my-button buttonStyle="small active">EN</my-button>
-          <my-button buttonStyle="small">UA</my-button>
+          <my-button type="secondary" size="small" state="active">EN</my-button>
+          <my-button type="secondary" size="small" state="inactive"
+            >UA</my-button
+          >
         </div>
       </div>
     </div>
-    <my-button buttonStyle="secondary">+38 (068) 949 - 49 -19</my-button>
+    <my-button type="primary" size="medium">+38 (068) 949 - 49 -19</my-button>
   </header>
 </template>
 
