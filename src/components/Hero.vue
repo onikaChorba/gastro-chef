@@ -67,6 +67,10 @@ export default {
   height: auto;
   background: var(--background-block);
   border-radius: 30px;
+
+  &__item{
+    @include flexbox($display: flex, $direction: column)
+  }
 }
 
 article {
@@ -76,7 +80,7 @@ article {
   @include text-style(
     $font-family: Montserrat,
     $weight: 500,
-    $size: 12px,
+    $size: 16px,
     $line-height: 130%,
     $letter-spacing: 0%,
     $color: var(--black)

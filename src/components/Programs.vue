@@ -12,38 +12,47 @@
     </div>
     <div class="programs__info">
       <div class="programs__info-price">
-        <div>
-          <h3>Fitness 1300</h3>
+        <div class="info-price">
+          <h3 class="info-price__title">Fitness 1300</h3>
           <p>
             Express Fit Healthy Eating Program. Ideal for: losing weight in the
             shortest time, increasing energy and strength, losing weight with a
             sedentary lifestyle.
           </p>
         </div>
-        <ul>
-          <li v-for="(item, index) in priceData" :key="index">
+        <ul class="info-price__list">
+          <li v-for="(item, index) in priceData" :key="index" class="info-price__item">
             <p>{{ item.title }}:</p>
-            <p v-for="(price, priceIndex) in item.prices" :key="priceIndex">{{ price }} UAH</p>
+            <p v-for="(price, priceIndex) in item.prices" :key="priceIndex"
+              :class="{ strikethrough: item.prices.length > 1 && priceIndex === 0 }">
+              {{ price }} UAH
+            </p>
             <p v-if="item.discount">{{ item.discount }}</p>
           </li>
         </ul>
         <my-button type="primary" size="medium">Order a test day</my-button>
       </div>
       <div class="programs__info-menu">
-        <ul>
-          <li v-for="(day, index) in daysOfWeek" :key="index">{{ day }}</li>
+        <ul class="days-of-week">
+          <li v-for="(day, index) in daysOfWeek" :key="index" class="day-of-week">{{ day }}</li>
         </ul>
-        <ul class="meal-schedule">
-          <li v-for="(meal, index) in mealData" :key="index" class="meal-item">
-            <h3>{{ meal.meal }}</h3>
-            <p>{{ meal.time }}</p>
-            <p>{{ meal.food }}</p>
-            <p v-if="meal.additionalFood">{{ meal.additionalFood }}</p>
+        <div class="meal-schedule">
+          <div v-for="(meal, index) in mealData" :key="index" class="meal-schedule__item">
+            <div>
+              <h3>{{ meal.meal }}</h3>
+              <p>{{ meal.time }}</p>
+            </div>
+            <div>
+              <p>{{ meal.food }}</p>
+              <p v-if="meal.additionalFood">{{ meal.additionalFood }}</p>
+            </div>
             <p>{{ meal.weight }}</p>
-            <p v-if="meal.pcs">{{ meal.pcs }}</p>
-            <p v-if="meal.additionalWeight">{{ meal.additionalWeight }}</p>
-          </li>
-        </ul>
+            <div>
+              <p v-if="meal.pcs">{{ meal.pcs }}</p>
+              <p v-if="meal.additionalWeight">{{ meal.additionalWeight }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -147,9 +156,7 @@ const mealData = [
   &__item {
     @include flexbox(
       $display: flex,
-      $direction: column,
-      $justifyContent: center,
-      $alignItems: center
+      $direction: column
     );
   }
   &__item-title {
@@ -157,7 +164,7 @@ const mealData = [
     @include text-style(
       $font-family: Comfortaa,
       $weight: 700,
-      $size: 10px,
+      $size: 14px,
       $line-height: 100%,
       $letter-spacing: 0%,
       $color: var(--black)
@@ -167,11 +174,121 @@ const mealData = [
     @include text-style(
       $font-family: Montserrat,
       $weight: 400,
-      $size: 8px,
+      $size: 14px,
       $line-height: 100%,
       $letter-spacing: 0%,
       $color: var(--black)
     );
   }
+  &__info{
+    @include flexbox($display: flex, $justifyContent: space-between, $alignItems: flex-start);
+    gap: 14px;
+  }
+  &__info-price {
+    width: 30%;
+    @include flexbox($display: flex, $direction: column, $alignItems: center);
+    gap: 20px;
+    padding:0px 20px;
+    box-sizing: border-box;
+  }
+  &__info-menu{
+    width: 70%;
+    @include flexbox($display: flex, $direction: column, $alignItems: center);
+    gap: 20px;
+  }
 }
+.info-price{
+  @include flexbox($display: flex, $direction: column, $alignItems: flex-start);
+  gap: 10px;
+  background: var(--primary);
+  box-shadow: var(--shadow);
+  border-radius: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+  @include text-style(
+    $font-family: Montserrat,
+    $weight: 500,
+    $size: 16px,
+    $line-height: 20px,
+    $letter-spacing: 0%,
+    $color: var(--white)
+  );
+  &__title{
+    text-transform: uppercase;
+    @include text-style(
+      $font-family: Comfortaa,
+      $weight: 700,
+      $size: 18px,
+      $line-height: 20px,
+      $letter-spacing: 0%,
+      $color: var(--white)
+    );
+  }
+   &__list{
+    width: 100%;
+    padding: 0px 20px;
+    padding-inline-start: 20px;
+    @include flexbox($display: flex, $direction: column, $alignItems: flex-start);
+    gap: 20px;
+    @include text-style(
+      $font-family: Montserrat,
+      $weight: 400,
+      $size: 14px,
+      $line-height: 10px,
+      $letter-spacing: 0%,
+      $color: var(--black)
+    );
+   }
+   &__item{
+    width: 100%;
+    @include flexbox ($display: flex, $justifyContent: space-between);
+   }
+}
+.days-of-week{
+  @include flexbox($display: flex, $justifyContent: space-between, $alignItems: center);
+  width: 100%;
+  height: 53px;
+  padding: 0px 20px;
+  padding-inline-start: 20px;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 30px;
+  list-style: none;
+  text-transform: uppercase;
+  @include text-style(
+    $font-family: Comfortaa,
+    $weight: 700,
+    $size: 16px,
+    $line-height: 20px,
+    $letter-spacing: 0%,
+    $color: var(--black)
+  );
+}
+.meal-schedule {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 30px;
+}
+
+.meal-schedule__item {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr auto auto;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.meal-schedule__item h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.meal-schedule__item p {
+  margin: 0;
+}
+
+
 </style>

@@ -31,6 +31,7 @@ import logo from "../assets/icons/logo.svg";
 @use "@/assets/styles/_mixins.scss" as *;
 
 .header {
+  max-width: 1550px;
   position: relative;
   @include flexbox($display: flex, $justifyContent: space-between, $alignItems: center);
   height: 217px;
