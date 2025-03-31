@@ -21,97 +21,36 @@
           </p>
         </div>
         <ul>
-          <li>
-            <p>Test Day:</p>
-            <p>510 UAH</p>
-            <p>357 UAH</p>
-          </li>
-          <li>
-            <p>1 Day:</p>
-            <p>357 UAH</p>
-          </li>
-          <li>
-            <p>From 7 Days:</p>
-            <p>510 UAH</p>
-            <p>490 UAH</p>
-          </li>
-          <li>
-            <p>From 14 Days:</p>
-            <p>510 UAH</p>
-            <p>470 UAH</p>
-          </li>
-          <li>
-            <p>From 30 Days:</p>
-            <p>510 UAH</p>
-            <p>445 UAH</p>
-          </li>
-          <li>
-            <p>Breakfast and Dinner:</p>
-            <p>-15%</p>
-            <p>433 UAH</p>
+          <li v-for="(item, index) in priceData" :key="index">
+            <p>{{ item.title }}:</p>
+            <p v-for="(price, priceIndex) in item.prices" :key="priceIndex">{{ price }} UAH</p>
+            <p v-if="item.discount">{{ item.discount }}</p>
           </li>
         </ul>
         <my-button type="primary" size="medium">Order a test day</my-button>
       </div>
       <div class="programs__info-menu">
         <ul>
-          <li>Mon</li>
-          <li>Tue</li>
-          <li>Wed</li>
-          <li>Thu</li>
-          <li>Fri</li>
-          <li>Sat</li>
-          <li>Sun</li>
+          <li v-for="(day, index) in daysOfWeek" :key="index">{{ day }}</li>
         </ul>
         <ul class="meal-schedule">
-          <li class="meal-item">
-            <h3>Breakfast</h3>
-            <p>7:00 AM - 9:00 AM</p>
-            <p>- Frittata with cheese and zucchini</p>
-            <p>170g</p>
-          </li>
-
-          <li class="meal-item">
-            <h3>Second Breakfast</h3>
-            <p>10:00 AM - 12:00 PM</p>
-            <p>- Farmer's yogurt</p>
-            <p>- Healthy cookies made from dried fruits and nuts</p>
-            <p>200g</p>
-            <p>2 pcs</p>
-          </li>
-
-          <li class="meal-item">
-            <h3>Lunch</h3>
-            <p>1:00 PM - 3:00 PM</p>
-            <p>- Turkey lula kebab</p>
-            <p>- Summer salad with olives and cheese</p>
-            <p>100g</p>
-            <p>100g</p>
-          </li>
-
-          <li class="meal-item">
-            <h3>Afternoon Snack</h3>
-            <p>4:00 PM - 5:30 PM</p>
-            <p>- Cottage cheese soufflé with cocoa and cherries</p>
-            <p>100g</p>
-          </li>
-
-          <li class="meal-item">
-            <h3>Dinner</h3>
-            <p>7:00 PM - 8:00 PM</p>
-            <p>- Fish terrine</p>
-            <p>- Grilled vegetables</p>
-            <p>100g</p>
-            <p>150g</p>
+          <li v-for="(meal, index) in mealData" :key="index" class="meal-item">
+            <h3>{{ meal.meal }}</h3>
+            <p>{{ meal.time }}</p>
+            <p>{{ meal.food }}</p>
+            <p v-if="meal.additionalFood">{{ meal.additionalFood }}</p>
+            <p>{{ meal.weight }}</p>
+            <p v-if="meal.pcs">{{ meal.pcs }}</p>
+            <p v-if="meal.additionalWeight">{{ meal.additionalWeight }}</p>
           </li>
         </ul>
-
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const programs = [
   { title: "Express Fit", text: "800 ккал" },
   { title: "slim", text: "1000 ккал" },
@@ -120,6 +59,70 @@ const programs = [
   { title: "balance +", text: "1800 ккал" },
   { title: "strong", text: "2000 ккал" },
   { title: "maxi fit", text: "2400 ккал" },
+];
+const priceData = [
+  {
+    title: "Test Day",
+    prices: ["510", "357"],
+  },
+  {
+    title: "1 Day",
+    prices: ["357"],
+  },
+  {
+    title: "From 7 Days",
+    prices: ["510", "490"],
+  },
+  {
+    title: "From 14 Days",
+    prices: ["510", "470"],
+  },
+  {
+    title: "From 30 Days",
+    prices: ["510", "445"],
+  },
+  {
+    title: "Breakfast and Dinner",
+    prices: ["433"],
+    discount: "-15%",
+  },
+];
+const mealData = [
+  {
+    meal: "Breakfast",
+    time: "7:00 AM - 9:00 AM",
+    food: "- Frittata with cheese and zucchini",
+    weight: "170g",
+  },
+  {
+    meal: "Second Breakfast",
+    time: "10:00 AM - 12:00 PM",
+    food: "- Farmer's yogurt",
+    additionalFood: "- Healthy cookies made from dried fruits and nuts",
+    weight: "200g",
+    pcs: "2 pcs",
+  },
+  {
+    meal: "Lunch",
+    time: "1:00 PM - 3:00 PM",
+    food: "- Turkey lula kebab",
+    additionalFood: "- Summer salad with olives and cheese",
+    weight: "100g",
+  },
+  {
+    meal: "Afternoon Snack",
+    time: "4:00 PM - 5:30 PM",
+    food: "- Cottage cheese soufflé with cocoa and cherries",
+    weight: "100g",
+  },
+  {
+    meal: "Dinner",
+    time: "7:00 PM - 8:00 PM",
+    food: "- Fish terrine",
+    additionalFood: "- Grilled vegetables",
+    weight: "100g",
+    additionalWeight: "150g",
+  },
 ];
 </script>
 <style lang="scss" scoped>
