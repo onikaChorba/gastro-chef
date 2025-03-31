@@ -1,7 +1,7 @@
 <template>
   <section class="programs">
-    <my-button type="primary" size="large">Nutrition programs</my-button>
-    <my-button type="secondary" size="large" state="inactive"
+    <my-button type="primary" size="large--active">Nutrition programs</my-button>
+    <my-button type="secondary" size="large--inactive" state="inactive"
       >Special programs</my-button
     >
     <article

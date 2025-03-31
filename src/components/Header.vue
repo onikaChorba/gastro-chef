@@ -15,13 +15,11 @@
 
         <div class="header__lang-btns">
           <my-button type="secondary" size="small" state="active">EN</my-button>
-          <my-button type="secondary" size="small" state="inactive"
-            >UA</my-button
-          >
+          <my-button type="secondary" size="small" state="inactive">UA</my-button>
         </div>
       </div>
     </div>
-    <my-button type="primary" size="medium">+38 (068) 949 - 49 -19</my-button>
+    <my-button type="primary" size="medium" state="inactive-secondary">+38 (068) 949 - 49 -19</my-button>
   </header>
 </template>
 
@@ -29,48 +27,43 @@
 import logo from "../assets/icons/logo.svg";
 </script>
 
-<style>
+<style lang="scss">
+@use "@/assets/styles/_mixins.scss" as *;
+
 .header {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flexbox($display: flex, $justifyContent: space-between, $alignItems: center);
   height: 217px;
 }
 
 .header__logo-nav {
-  display: flex;
-  align-items: center;
+  @include flexbox($display: flex, $alignItems: center);
   gap: 40px;
 }
 
 .header__logo {
   position: absolute;
   top: -47px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexbox($display: flex, $justifyContent: center, $alignItems: center);
   box-sizing: border-box;
   width: 264px;
   height: 264px;
   border-radius: 50%;
-  background: #f5faff;
+  background: var(--background-block);
   box-shadow: var(--shadow);
 }
 
 .header__nav-lang {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   left: 304px;
-  display: flex;
-  flex-direction: column;
+  transform: translateY(-50%);
+  @include flexbox($display: flex, $direction: column);
   gap: 20px;
 }
 
 .nav {
-  display: flex;
-  align-items: center;
+  @include flexbox($display: flex, $alignItems: center);
   gap: 40px;
   padding: 0 40px;
   height: 52px;
@@ -79,14 +72,13 @@ import logo from "../assets/icons/logo.svg";
 }
 
 .nav__item {
-  font-size: 16px;
-  color: #333;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav__item:hover {
-  color: #64d370;
+  cursor: pointer;
+  color: var(--primary);
 }
 
 .header__lang-btns {

@@ -54,14 +54,12 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" >
+@use "@/assets/styles/_mixins.scss" as *;
 .our-rules {
-  align-self: flex-end;
   max-width: 1286px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  @include flexbox($display: flex, $wrap: wrap, $justifyContent: space-between, $alignItems: center);
+  align-self: flex-end;
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
@@ -72,16 +70,17 @@ export default {
 }
 
 article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flexbox($display: flex, $direction: center, $alignItems: center);
   gap: 20px;
   width: 175px;
-  font-family: Montserrat;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 130%;
-  letter-spacing: 0%;
+  @include text-style(
+    $font-family: Montserrat,
+    $weight: 500,
+    $size: 12px,
+    $line-height: 130%,
+    $letter-spacing: 0%,
+    $color: var(--black)
+  );
   text-align: center;
 }
 </style>

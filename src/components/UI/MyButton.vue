@@ -34,11 +34,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@use "@/assets/styles/_mixins.scss" as *;
+
 .button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  @include flexbox($display: flex, $justifyContent: center, $alignItems: center);
   border: none;
   border-radius: 190px;
   box-shadow: var(--shadow);
@@ -59,21 +59,36 @@ export default {
 .button--active {
   background-color: var(--primary);
   color: var(--white);
-  font-family: Montserrat;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 100%;
-  letter-spacing: 2.5%;
+  @include text-style(
+    $font-family: Montserrat,
+    $weight: 400,
+    $size: 15px,
+    $line-height: 100%,
+    $letter-spacing: 2.5%,
+    $color: var(--white)
+  );
+}
+.button--inactive-secondary{
+    background-color: var(--white);
+  @include text-style($font-family: Montserrat,
+      $weight: 700,
+      $size: 20px,
+      $line-height: 100%,
+      $letter-spacing: 0%,
+      $color: var(--primary));
 }
 
 .button--inactive {
-  color: var(--black);
   background-color: var(--white);
-  font-family: Montserrat;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 100%;
-  letter-spacing: 2.5%;
+
+  @include text-style(
+    $font-family: Montserrat,
+    $weight: 400,
+    $size: 15px,
+    $line-height: 100%,
+    $letter-spacing: 2.5%,
+    $color: var(--black)
+  );
 }
 
 .button:disabled {
@@ -95,15 +110,29 @@ export default {
   line-height: 24px;
 }
 
-.button--large {
+.button--large--active {
   width: 580px;
   height: 62px;
-  font-size: 25px;
-  font-family: "Comfortaa", sans-serif;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+
+  @include text-style(
+    $font-family: Comfortaa,
+    $weight: 700,
+    $size: 25px,
+    $line-height: 100%,
+    $letter-spacing: 0.5px,
+    $color: var(--white)
+  );
+}
+.button--large--inactive {
+  width: 580px;
+  height: 62px;
+  background: var(--grey);
+  @include text-style($font-family: Comfortaa,
+    $weight: 700,
+    $size: 25px,
+    $line-height: 100%,
+    $letter-spacing: 0.5px,
+    $color: var(--black));
 }
 
 @media (max-width: 580px) {
