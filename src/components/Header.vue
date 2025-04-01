@@ -53,7 +53,10 @@ import logo from "../assets/icons/logo.svg";
   background: var(--background-block);
   box-shadow: var(--shadow);
 }
-
+.header__logo img{
+  width: auto;
+  height: 120px;
+}
 .header__nav-lang {
   position: absolute;
   top: 50%;

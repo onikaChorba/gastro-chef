@@ -2,6 +2,7 @@
 import MyHeader from "./components/Header.vue";
 import Hero from "./components/Hero.vue";
 import Programs from "./components/Programs.vue";
+import Photos from "./components/Photos.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import Programs from "./components/Programs.vue";
   <main>
     <Hero />
     <Programs />
+    <Photos/>
   </main>
 </template>
 

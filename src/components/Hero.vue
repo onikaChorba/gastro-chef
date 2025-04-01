@@ -1,11 +1,7 @@
 <template>
   <section class="our-rules">
-    <article
-      class="our-rules__item"
-      v-for="advantage in advantages"
-      :key="advantage.text"
-    >
-      <img :src="advantage.icon" />
+    <article class="our-rules__item" v-for="advantage in advantages" :key="advantage.text">
+      <img :src="advantage.icon" class="our-rules__img" />
       <p>{{ advantage.text }}</p>
     </article>
   </section>
@@ -70,6 +66,10 @@ export default {
 
   &__item{
     @include flexbox($display: flex, $direction: column)
+  }
+  &__img{
+    width: auto;
+    height: 67px;
   }
 }
 
