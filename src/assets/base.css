@@ -38,3 +38,7 @@ section{
   padding-top: 40px;
   padding-bottom: 60px;
 }
+
+a {
+  text-decoration: none;
+}

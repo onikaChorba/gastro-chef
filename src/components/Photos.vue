@@ -1,12 +1,11 @@
 <template>
   <section class="photos">
     <h2 class="photos__title">Photos of dishes</h2>
-    <ImageCarousel :slides="photos" :carouselConfig="carouselConfig" class="photos__carousel"/>
+    <my-carousel :slides="photos" :carouselConfig="carouselConfig" class="photos__carousel"/>
   </section>
 </template>
 
 <script setup>
-import ImageCarousel from "@/components/UI/Carousel.vue";
 import photo1 from "@/assets/imgs/5d01e25aba0925027306358421589e59.jpeg";
 import photo2 from "@/assets/imgs/949efc6f26cbc0233c78e87fce3eabaa.jpeg";
 import photo3 from "@/assets/imgs/c40612ba34c12763be88bcb6d347ca1e.jpeg";

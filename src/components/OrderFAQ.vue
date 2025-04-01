@@ -8,11 +8,11 @@
       </p>
       <form class="order__form">
         <MyInput v-model="inputValue" label="Name" placeholder="Ivan Ivanov" />
-        <MyInput
-          v-model="inputValue"
-          label="Phone"
-          placeholder="+380907668343"
-        />
+        <MyInput v-model="inputValue" label="Phone" placeholder="+380907668343" />
+        <MyCheckbox v-model="isChecked1">Test day! Get a -30% discount?</MyCheckbox>
+        <MyCheckbox v-model="isChecked2">
+          I agree with <a href="#"><span> of cooperation</span></a>
+        </MyCheckbox>
       </form>
       <div class="order__buttons">
         <my-button type="grey" size="medium" state="inactive-secondary">
@@ -27,9 +27,10 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import MyInput from "./UI/MyInput.vue";
 
 const inputValue = ref("");
+const isChecked1 = ref(true);
+const isChecked2 = ref(false);
 </script>
 
 <style lang="scss" scoped>
