@@ -30,3 +30,8 @@ body {
 .strikethrough {
   text-decoration: line-through;
 }
+
+section{
+  padding-top: 40px;
+  padding-bottom: 60px;
+}

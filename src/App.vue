@@ -3,6 +3,7 @@ import MyHeader from "./components/Header.vue";
 import Hero from "./components/Hero.vue";
 import Programs from "./components/Programs.vue";
 import Photos from "./components/Photos.vue";
+import OrderFAQ from "./components/OrderFAQ.vue";
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import Photos from "./components/Photos.vue";
     <Hero />
     <Programs />
     <Photos/>
+    <OrderFAQ/>
   </main>
 </template>
 

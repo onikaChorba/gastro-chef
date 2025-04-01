@@ -36,7 +36,6 @@ const carouselConfig = {
 
 .photos {
   width: 100%;
-  margin-bottom: 60px;
   @include flexbox($display: flex, $direction: column, $alignItems: center);
   gap: 40px;
   &__title {
