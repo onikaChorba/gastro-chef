@@ -40,7 +40,7 @@ const isChecked2 = ref(false);
 const faqItems = ref([
   {
     question: "How is healthy food delivery carried out?",
-    answer: "Delivery is made daily from 8:00 AM to 12:00 PM by a courier.",
+    answer: "Delivery is carried out daily from 8:00 AM to 12:00 PM by a courier.",
     open: false
   },
   {
@@ -49,18 +49,38 @@ const faqItems = ref([
     open: false
   },
   {
-    question: "How and in what is the food delivered?",
-    answer: "The food is delivered in special containers that maintain freshness.",
+    question: "How is the food delivered and in what packaging?",
+    answer: "The food is delivered in special containers that keep it fresh.",
     open: false
   },
   {
-    question: "When do you cook?",
-    answer: "We cook daily at night to ensure the food is fresh.",
+    question: "When do you prepare the meals?",
+    answer: "We cook every night to ensure the food is fresh.",
     open: false
   },
   {
-    question: "What products do you use?",
-    answer: "Only fresh and high-quality products without preservatives.",
+    question: "What kind of products do you use?",
+    answer: "Only fresh and high-quality ingredients without preservatives.",
+    open: false
+  },
+  {
+    question: "Will I be eating the same food every day?",
+    answer: "No, we offer a varied menu to ensure a balanced diet.",
+    open: false
+  },
+  {
+    question: "I have allergies and food intolerances. Can you accommodate that?",
+    answer: "Yes, let us know in advance, and we will customize your meals accordingly.",
+    open: false
+  },
+  {
+    question: "In what order should I eat the meals?",
+    answer: "We recommend eating meals in the order provided to maintain a balanced diet.",
+    open: false
+  },
+  {
+    question: "Can I pause my meal plan?",
+    answer: "Yes, you can freeze your program by notifying us in advance.",
     open: false
   }
 ]);
@@ -132,5 +152,17 @@ const toggleAnswer = (index) => {
 }
 .questions{
   width: 100%;
+
+  &__title{
+    text-align: center;
+    padding-bottom: 30px;
+    @include text-style(
+      $font-family: Comfortaa,
+        $weight: 700,
+        $size: 25px,
+        $line-height: 100%,
+        $letter-spacing: 0%,
+    )
+  }
 }
 </style>
