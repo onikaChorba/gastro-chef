@@ -56,6 +56,11 @@ export default {
   color: #333;
 }
 
+.button--grey{
+  background-color: var(--grey);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
 .button--active {
   background-color: var(--primary);
   color: var(--white);
