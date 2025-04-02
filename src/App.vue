@@ -4,6 +4,7 @@ import Hero from "./components/Hero.vue";
 import Programs from "./components/Programs.vue";
 import Photos from "./components/Photos.vue";
 import OrderFAQ from "./components/OrderFAQ.vue";
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import OrderFAQ from "./components/OrderFAQ.vue";
     <Photos/>
     <OrderFAQ/>
   </main>
+<Footer/>
 </template>
 
 <style>
