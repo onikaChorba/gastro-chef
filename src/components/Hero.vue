@@ -3,7 +3,10 @@
     <div class="hero__buttons">
       <div class="hero__button" v-for="button in buttons" :key="button.text || button.src">
         <p v-if="button.text">{{ button.text }}</p>
-        <img v-if="button.src" :src="button.src" :alt="button.alt || 'icon'" />
+        <div>
+          <img v-if="button.src" :src="button.src" :alt="button.alt || 'icon'" />
+        </div>
+        <p class="hero__button-description">{{button.description}}</p>    
       </div>
     </div>
     <HeroCarousel />
@@ -64,12 +67,12 @@ export default {
         },
       ],
       buttons: [
-        { text: "kcal"},
-        { src: fish, alt: "fish"},
-        { src: carrot, alt: "carrot" },
-        { src: bottle, alt: "bottle" },
-        { src: meat, alt: "meat" },
-        { src: table, alt: "table", text:"5" },
+        { text: "kcal", description: 'calorie content'},
+        { src: fish, alt: "fish", description: 'fish'},
+        { src: carrot, alt: "carrot", description: 'carrot'},
+        { src: bottle, alt: "bottle", description: 'bottle' },
+        { src: meat, alt: "meat", description:'meat' },
+        { src: table, alt: "table", text:"5", description:'serving' },
       ]
     };
   },
@@ -85,7 +88,7 @@ export default {
     left: 50px;
     top: 50%;
     transform: translateY(-50%);
-    @include flexbox($display: flex, $direction: column, $justifyContent: space-between, $alignItems: center);
+    @include flexbox($display: flex, $direction: column, $justifyContent: space-between, $alignItems: flex-start);
     gap: 50px;
     @include text-style(
       $font-family: Comfortaa,
@@ -96,6 +99,7 @@ export default {
         $color: var(--black)
     )
   }
+
   &__button{
     width: 70px;
     height: 70px;
@@ -103,14 +107,44 @@ export default {
     background: var(--background-block);
     box-shadow: var(--shadow);
     border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
 
     img{
       width: 40px;
       height: 40px;
       object-fit: contain;
     }
+
+    &-description{
+      display: none;
+    }
+
+    &:hover{
+      width: 188px;
+      border-radius: 190px;
+      flex-direction: initial;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      padding: 0px 15px;
+
+      .hero__button-description {
+        width: 100%;
+        display: block;
+         @include text-style(
+          $font-family: Comfortaa,
+          $weight: 700,
+          $size: 25px,
+          $line-height: 100%,
+          $letter-spacing: 2.5%,
+          $color: var(--primary))
+      }
+    }
   }
 }
+
 .our-rules {
   max-width: 1286px;
   @include flexbox($display: flex, $wrap: wrap, $justifyContent: space-between, $alignItems: center);
@@ -126,6 +160,7 @@ export default {
   &__item{
     @include flexbox($display: flex, $direction: column)
   }
+
   &__img{
     width: auto;
     height: 67px;
