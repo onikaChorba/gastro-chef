@@ -18,14 +18,13 @@
 }
 
 body {
-  max-width: 1550px;
   margin: 0 auto;
   background: var(--background);
-  background-image: url('./icons/bg.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right top;
 }
+
 .strikethrough {
   text-decoration: line-through;
 }
@@ -33,6 +32,7 @@ body {
 span{
   color: var(--primary);
 }
+
 section{
   padding-top: 40px;
   padding-bottom: 60px;

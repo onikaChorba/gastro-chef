@@ -32,6 +32,7 @@ import logo from "../assets/icons/logo.svg";
 
 .header {
   max-width: 1550px;
+  margin: 0 auto;
   position: relative;
   @include flexbox($display: flex, $justifyContent: space-between, $alignItems: center);
   height: 217px;

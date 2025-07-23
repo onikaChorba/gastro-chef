@@ -1,21 +1,20 @@
 <script setup>
-import MyHeader from "./components/Header.vue";
 import Hero from "./components/Hero.vue";
 import Programs from "./components/Programs.vue";
 import Photos from "./components/Photos.vue";
 import OrderFAQ from "./components/OrderFAQ.vue";
 import Footer from './components/Footer.vue';
+import Layout from "./components/Layout.vue";
 </script>
 
 <template>
-  <MyHeader />
-  <main>
+  <Layout>
     <Hero />
     <Programs />
-    <Photos/>
-    <OrderFAQ/>
-  </main>
-<Footer/>
+    <Photos />
+    <OrderFAQ />
+    <Footer />
+  </Layout>
 </template>
 
 <style>
@@ -25,6 +24,8 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
+  max-width: 1550px;
+  margin: 0 auto;
 }
 section {
   margin: 0 auto;

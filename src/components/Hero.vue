@@ -80,8 +80,6 @@ export default {
 @use "@/assets/styles/_mixins.scss" as *;
 .hero{
   width: 100%;
-  min-height: calc(100vh - 217px );
-
   &__buttons{
     position: absolute;
     left: 50px;
