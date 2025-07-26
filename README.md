@@ -1,29 +1,25 @@
-# gastro-chef
+# 🧑‍🍳 Gastro Chef — Healthy Meal Delivery Service
 
-This template should help get you started developing with Vue 3 in Vite.
+**Gastro Chef** is a modern landing page for a healthy meal delivery service. We cook meals overnight, pack them in eco-friendly containers, and deliver them in the early morning. The website highlights the key benefits of the service, offers visual interaction through a hero carousel, and includes informative icon buttons.
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Features
 
-## Customize configuration
+- 🎠 **Hero Carousel** with eye-catching images
+- 🔘 **Circular icon buttons** with text revealed on hover
+- ♻️ **Service advantages section** with icons and descriptions
+- 📱 **Responsive design** for desktop, tablet, and mobile
+- 🖼️ Supports **SVG and PNG icons**
 
-See [Vite Configuration Reference](https://vite.dev/config/).
 
-## Project Setup
+## 🛠️ Technologies Used
 
-```sh
-npm install
-```
+- **Vue 3** with `<script setup>`
+- **SCSS (SASS)** for modular and reusable styling
+- **vue3-carousel** — responsive carousel component
+- **Custom vector and raster icons**
+- **CSS Flexbox** for layout structure
+- **Hover animations** for interactive buttons
+- **Media queries** for full responsiveness
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
