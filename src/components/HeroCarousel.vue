@@ -1,23 +1,20 @@
 <template>
-  <Swiper
-    :modules="[Navigation, Autoplay]"
-    :pagination="{ clickable: true }"
-    :autoplay="{ delay: 5000, disableOnInteraction: false }"
-    loop
-    class="mySwiper"
-  >
+  <Swiper :modules="[Navigation, Autoplay]" :pagination="{ clickable: true }"
+    :autoplay="{ delay: 5000, disableOnInteraction: false }" loop class="mySwiper">
     <SwiperSlide v-for="(item, index) in slides" :key="index">
       <div class="slide-content">
         <div class="info">
-          <h3 class="title">{{ item.title1 }} <span>{{item.span}} </span> {{item.title2}}</h3>
+          <h3 class="title">{{ item.title1 }} <span>{{ item.span }} </span> {{ item.title2 }}</h3>
           <p class="text">{{ item.description }}</p>
 
           <div class="btns">
-            <MyButton>{{ item.textButton }}</MyButton><button class="btn"><p>{{ item.extraText }}</p><span>{{item.discount}}</span></button>
+            <MyButton>{{ item.textButton }}</MyButton><button class="btn">
+              <p>{{ item.extraText }}</p><span>{{ item.discount }}</span>
+            </button>
           </div>
         </div>
         <div class="image-wrapper">
-          <img :src="item.image" alt="food" class="image"/>
+          <img :src="item.image" alt="food" class="image" />
         </div>
       </div>
     </SwiperSlide>
@@ -66,7 +63,7 @@ const slides = [
     title2: "cleansing",
     textButton: "Order",
     extraText: "Trial day total:",
-    discount:'from 427 UAH'
+    discount: 'from 427 UAH'
   },
 ];
 </script>
@@ -76,55 +73,102 @@ const slides = [
 
 .mySwiper {
   width: 100%;
-  height: calc(100vh - 317px);
-  height: 100%;
   margin-bottom: 80px;
 }
 
 .slide-content {
   width: 100%;
-  @include flexbox(
-    $display: flex,
-    $alignItems: center,
-    $justifyContent: space-between
-  );
+  @include flexbox($display: flex, $alignItems: center, $justifyContent: space-between);
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
 
-.info{
-  @include flexbox(
-    $display: flex,
-    $direction: column,
-    $alignItems: center,
-    $justifyContent: center
-  );
+.info {
+  @include flexbox($display: flex, $direction: column, $alignItems: flex-start, $justifyContent: center);
   gap: 15px;
   margin-left: 120px;
   max-width: 677px;
   flex: 1;
+
+  @media (max-width: 1024px) {
+    margin-left: 0;
+    text-align: center;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 100%;
+  }
 }
 
-.title{
+.title {
   text-align: left;
   @include text-style($font-family: Comfortaa,
-  $weight: 700,
-  $size: 40px,
-  $line-height: 100%,
-  $letter-spacing: 2.5%,
-  $color: var(--black));
-  text-align: left;
+    $weight: 700,
+    $size: 40px,
+    $line-height: 100%,
+    $letter-spacing: 2.5%,
+    $color: var(--black));
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+    text-align: center;
+
+    span {
+      color: var(--black);
+    }
+  }
+
+  @media (max-width: 600px) {
+    font-size: 24px;
+  }
 }
 
-.span{
-  color: var(--primary);
-}
-
-.text{
+.text {
   @include text-style($font-family: Montserrat,
-  $weight: 400,
-  $size: 20px,
-  $line-height: 134%,
-  $letter-spacing: 0%,
-  $color: var(--black));
+    $weight: 400,
+    $size: 20px,
+    $line-height: 134%,
+    $letter-spacing: 0%,
+    $color: var(--black));
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
+}
+
+.btns {
+  @include flexbox($display: flex);
+  gap: 30px;
+  margin-top: 30px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.btn {
+  @include text-style($font-family: Montserrat,
+    $weight: 400,
+    $size: 20px,
+    $line-height: 100%,
+    $letter-spacing: 0%,
+    $color: var(--black));
+  border: none;
+  background: none;
+  @include flexbox($display: flex, $direction: column, $alignItems: center, $justifyContent: center);
+  gap: 3px;
+
+  @media (max-width: 600px) {
+    font-size: 16px;
+  }
 }
 
 .image-wrapper {
@@ -133,94 +177,25 @@ const slides = [
   border-radius: 50%;
   padding: 20px;
   background: var(--white);
-    @include flexbox(
-    $display: flex,
-    $direction: center,
-    $alignItems: center,
-    $justifyContent: center
-  );
+  @include flexbox($display: flex, $alignItems: center, $justifyContent: center);
+
+  @media (max-width: 1024px) {
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+  }
+
+  @media (max-width: 600px) {
+    width: 240px;
+    height: 240px;
+  }
 }
 
-.image{
+.image {
   border-radius: 50%;
   width: 100%;
   height: 100%;
   object-fit: cover;
   overflow: hidden;
 }
-
-.btns{
- @include flexbox(
-  $display: flex
- );
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.btn{
-  @include text-style($font-family: Montserrat,
-  $weight: 400,
-  $size: 20px,
-  $line-height: 100%,
-  $letter-spacing: 0%,
-  $color: var(--black));
-  border: none;
-  background: none;
-  @include flexbox(
-  $display: flex,
-  $direction: column,
-  $alignItems: center,
-  $justifyContent: center
- );
- gap: 3px;
-}
-
-@media (max-width: 1024px) {
-  .slide-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .info {
-    margin-left: 0;
-    text-align: center;
-    max-width: 100%;
-    padding: 0 20px;
-  }
-
-  .title {
-    font-size: 30px;
-  }
-
-  .text {
-    font-size: 16px;
-  }
-
-  .btns {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .image-wrapper {
-    width: 300px;
-    height: 300px;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 600px) {
-  .title {
-    font-size: 24px;
-  }
-
-  .text {
-    font-size: 14px;
-  }
-
-  .btn {
-    font-size: 16px;
-  }
-}
-
 </style>

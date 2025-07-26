@@ -55,7 +55,6 @@ import chat from '../assets/icons/chat.svg';
   align-items: center;
   justify-content: center;
 
-  position: fixed;
   z-index: 10;
 
   p {
@@ -68,14 +67,12 @@ import chat from '../assets/icons/chat.svg';
     border-radius: 50%;
     background: var(--black);
 
-    @include text-style(
-      $font-family: Comfortaa,
+    @include text-style($font-family: Comfortaa,
       $weight: 700,
       $size: 12px,
       $line-height: 134%,
       $letter-spacing: 0%,
-      $color: var(--white)
-    );
+      $color: var(--white));
 
     text-align: center;
   }
@@ -83,19 +80,68 @@ import chat from '../assets/icons/chat.svg';
   .chat-description {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, 10px);
+    top: -60px;
+    right: 0px;
     background: white;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     white-space: nowrap;
     z-index: 1;
+    font-size: 14px;
+    text-align: center;
   }
 
   &:hover .chat-description {
     display: block;
+  }
+
+  @media (max-width: 1024px) {
+    bottom: 60px;
+    right: 40px;
+    width: 65px;
+    height: 65px;
+
+    .icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    p {
+      width: 22px;
+      height: 22px;
+      font-size: 11px;
+    }
+
+    .chat-description {
+      font-size: 13px;
+      padding: 8px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    bottom: 30px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    p {
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+    }
+
+    .chat-description {
+      font-size: 12px;
+      max-width: 200px;
+      white-space: normal;
+      text-align: center;
+    }
   }
 }
 

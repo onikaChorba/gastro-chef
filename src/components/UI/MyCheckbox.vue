@@ -54,13 +54,11 @@ const toggle = () => {
 }
 
 label {
-  @include text-style(
-$font-family: Comfortaa,
-  $weight: 700,
-  $size: 16px,
-  $line-height: 134%,
-  $letter-spacing: 2.5%,
+  @include text-style($font-family: Comfortaa,
+    $weight: 700,
+    $size: 16px,
+    $line-height: 134%,
+    $letter-spacing: 2.5%,
   )
-
 }
 </style>

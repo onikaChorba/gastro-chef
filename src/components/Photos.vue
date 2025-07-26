@@ -1,7 +1,7 @@
 <template>
   <section class="photos">
     <h2 class="photos__title">Photos of dishes</h2>
-    <my-carousel :slides="photos" :carouselConfig="carouselConfig" class="photos__carousel"/>
+    <my-carousel :slides="photos" :carouselConfig="carouselConfig" class="photos__carousel" />
   </section>
 </template>
 
@@ -26,7 +26,21 @@ const carouselConfig = {
   itemsToShow: 4.5,
   wrapAround: true,
   height: "100%",
-  gap: 10
+  gap: 10,
+  breakpoints: {
+    1200: {
+      itemsToShow: 3.5,
+    },
+    992: {
+      itemsToShow: 2.5,
+    },
+    768: {
+      itemsToShow: 1.5,
+    },
+    480: {
+      itemsToShow: 1,
+    },
+  },
 };
 </script>
 
@@ -37,20 +51,44 @@ const carouselConfig = {
   width: 100%;
   @include flexbox($display: flex, $direction: column, $alignItems: center);
   gap: 40px;
+
   &__title {
-    @include text-style(
-      $font-family: Comfortaa,
+    @include text-style($font-family: Comfortaa,
       $weight: 700,
       $size: 30px,
       $line-height: 100%,
-      $letter-spacing: 0%
-    );
+      $letter-spacing: 0%);
     color: var(--black);
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 20px;
+    }
   }
-  &__carousel{
+
+  &__carousel {
     width: 100%;
     height: 570px;
+
+    @media (max-width: 1200px) {
+      height: 500px;
+    }
+
+    @media (max-width: 992px) {
+      height: 450px;
+    }
+
+    @media (max-width: 768px) {
+      height: 400px;
+    }
+
+    @media (max-width: 480px) {
+      height: 350px;
+    }
   }
 }
 </style>

@@ -6,6 +6,7 @@
         <img :src="arrow" />
       </span>
     </div>
+
     <div v-if="item.open" class="list-item__answer">
       {{ item.answer }}
     </div>
@@ -29,6 +30,7 @@ const toggle = () => {
 
 <style lang="scss" scoped>
 @use '@/assets/styles/_mixins.scss' as *;
+
 .list-item {
   width: 100%;
   background-color: var(--white);
@@ -40,16 +42,16 @@ const toggle = () => {
   margin-inline-start: 0px;
   cursor: pointer;
 
-  &__question{
+  &__question {
     @include flexbox($display: flex, $justifyContent: space-between);
-    @include text-style(
-      $font-family: Montserrat,
+    @include text-style($font-family: Montserrat,
       $weight: 400,
       $size: 16px,
       $line-height: 134%,
-      $letter-spacing: 2.5%,  
+      $letter-spacing: 2.5%,
     )
   }
+
   &__answer {
     max-width: 300px;
     margin-top: 5px;
@@ -60,12 +62,13 @@ const toggle = () => {
 .arrow {
   transition: transform 0.3s;
 }
+
 .arrow img {
   width: 10px;
   height: 10px;
 }
+
 .arrow.open {
   transform: rotate(90deg);
 }
-
 </style>

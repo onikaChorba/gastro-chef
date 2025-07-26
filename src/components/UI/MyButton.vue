@@ -150,4 +150,34 @@ export default {
     font-size: 22px;
   }
 }
+
+@media (max-width: 768px) {
+
+  .button--large--active,
+  .button--large--inactive {
+    width: 100%;
+    max-width: 300px;
+    height: 52px;
+
+    @include text-style($font-family: Comfortaa,
+      $weight: 700,
+      $size: 18px,
+      $line-height: 100%,
+      $letter-spacing: 0.5px,
+      $color: var(--black));
+  }
+
+  .button--medium {
+    width: 100%;
+    max-width: 240px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .button--small {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
 </style>

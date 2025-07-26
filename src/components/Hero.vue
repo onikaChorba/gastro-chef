@@ -3,17 +3,21 @@
     <div class="hero__buttons">
       <div class="hero__button" v-for="button in buttons" :key="button.text || button.src">
         <p v-if="button.text">{{ button.text }}</p>
+
         <div>
           <img v-if="button.src" :src="button.src" :alt="button.alt || 'icon'" />
         </div>
-        <p class="hero__button-description">{{button.description}}</p>    
+
+        <p class="hero__button-description">{{ button.description }}</p>
       </div>
     </div>
+
     <HeroCarousel />
   </div>
   <section class="our-rules">
     <article class="our-rules__item" v-for="advantage in advantages" :key="advantage.text">
       <img :src="advantage.icon" class="our-rules__img" />
+
       <p>{{ advantage.text }}</p>
     </article>
   </section>
@@ -67,40 +71,41 @@ export default {
         },
       ],
       buttons: [
-        { text: "kcal", description: 'calorie content'},
-        { src: fish, alt: "fish", description: 'fish'},
-        { src: carrot, alt: "carrot", description: 'carrot'},
+        { text: "kcal", description: 'calorie content' },
+        { src: fish, alt: "fish", description: 'fish' },
+        { src: carrot, alt: "carrot", description: 'carrot' },
         { src: bottle, alt: "bottle", description: 'bottle' },
-        { src: meat, alt: "meat", description:'meat' },
-        { src: table, alt: "table", text:"5", description:'serving' },
+        { src: meat, alt: "meat", description: 'meat' },
+        { src: table, alt: "table", text: "5", description: 'serving' },
       ]
     };
   },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @use "@/assets/styles/_mixins.scss" as *;
-.hero{
+
+.hero {
   width: 100%;
-  &__buttons{
+
+  &__buttons {
     position: absolute;
     left: 50px;
     top: 50%;
     transform: translateY(-50%);
     @include flexbox($display: flex, $direction: column, $justifyContent: space-between, $alignItems: flex-start);
     gap: 50px;
-    @include text-style(
-      $font-family: Comfortaa,
-        $weight: 700,
-        $size: 20px,
-        $line-height: 138%,
-        $letter-spacing: 0%,
-        $color: var(--black)
-    )
+    z-index: 10;
+    @include text-style($font-family: Comfortaa,
+      $weight: 700,
+      $size: 20px,
+      $line-height: 138%,
+      $letter-spacing: 0%,
+      $color: var(--black))
   }
 
-  &__button{
+  &__button {
     width: 70px;
     height: 70px;
     @include flexbox($display: flex, $direction: column, $justifyContent: center, $alignItems: center);
@@ -110,17 +115,17 @@ export default {
     transition: all 0.3s ease;
     cursor: pointer;
 
-    img{
+    img {
       width: 40px;
       height: 40px;
       object-fit: contain;
     }
 
-    &-description{
+    &-description {
       display: none;
     }
 
-    &:hover{
+    &:hover {
       width: 188px;
       border-radius: 190px;
       flex-direction: initial;
@@ -133,8 +138,7 @@ export default {
       .hero__button-description {
         width: 100%;
         display: block;
-         @include text-style(
-          $font-family: Comfortaa,
+        @include text-style($font-family: Comfortaa,
           $weight: 700,
           $size: 25px,
           $line-height: 100%,
@@ -157,11 +161,11 @@ export default {
   background: var(--background-block);
   border-radius: 30px;
 
-  &__item{
+  &__item {
     @include flexbox($display: flex, $direction: column)
   }
 
-  &__img{
+  &__img {
     width: auto;
     height: 67px;
   }
@@ -171,14 +175,84 @@ article {
   @include flexbox($display: flex, $direction: center, $alignItems: center);
   gap: 20px;
   width: 175px;
-  @include text-style(
-    $font-family: Montserrat,
+  @include text-style($font-family: Montserrat,
     $weight: 500,
     $size: 16px,
     $line-height: 130%,
     $letter-spacing: 0%,
-    $color: var(--black)
-  );
+    $color: var(--black));
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    &__buttons {
+      position: static;
+      transform: none;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px auto;
+    }
+
+    &__button {
+      width: 50px;
+      height: 50px;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+
+      &:hover {
+        width: 50px;
+        border-radius: 50%;
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+
+        .hero__button-description {
+          display: none;
+        }
+      }
+
+      .hero__button-description {
+        display: none !important;
+      }
+    }
+
+    .title {
+      text-align: center;
+      color: var(--white);
+    }
+  }
+
+  .our-rules {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    &__item {
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 320px;
+      text-align: left;
+    }
+
+    &__img {
+      height: 40px;
+    }
+  }
+
+  article {
+    width: 100%;
+    max-width: 320px;
+    font-size: 14px;
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 </style>
