@@ -13,7 +13,7 @@ const Empty = {
 
 const routes = [
   { path: "/", component: Home },
-  { path: "/programs", component: Empty },
+  { path: "/programs", component: Home },
   { path: "/business-lunch", component: Empty },
   { path: "/shop", component: Empty },
   { path: "/about", component: About },

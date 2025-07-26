@@ -18,7 +18,7 @@
     <div class="header__logo-nav" :class="{ open: menuOpen }">
       <div class="header__nav-lang">
         <nav class="nav">
-          <router-link class="nav__item" to="/programs">Nutrition programs</router-link>
+          <router-link class="nav__item" to="/">Nutrition programs</router-link>
           <router-link class="nav__item" to="/business-lunch">Business lunch</router-link>
           <router-link class="nav__item" to="/shop">Gastro Shop</router-link>
           <router-link class="nav__item" to="/about">About us</router-link>
@@ -248,6 +248,22 @@ const toggleMenu = () => {
     &:hover {
       cursor: pointer;
       color: var(--primary);
+    }
+
+    &+.router-link-exact-active {
+      position: relative;
+      font-weight: 600;
+      color: var(--primary);
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary);
+      }
     }
   }
 }

@@ -5,13 +5,13 @@ import Layout from "./components/Layout.vue";
 
 <template>
   <Layout>
-    <router-view v-slot="{ Component }">
+    <router-view v-slot="{ Component }" :key="$route.fullPath">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
-    <Footer />
   </Layout>
+  <Footer />
 </template>
 
 <style>
