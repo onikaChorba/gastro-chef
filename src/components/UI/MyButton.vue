@@ -56,44 +56,42 @@ export default {
   color: #333;
 }
 
-.button--grey{
+.button--grey {
   background-color: var(--grey);
   border: 1px solid var(--primary);
   color: var(--primary);
 }
+
 .button--active {
   background-color: var(--primary);
   color: var(--white);
-  @include text-style(
-    $font-family: Montserrat,
+  @include text-style($font-family: Montserrat,
     $weight: 400,
     $size: 15px,
     $line-height: 100%,
     $letter-spacing: 2.5%,
-    $color: var(--white)
-  );
+    $color: var(--white));
 }
-.button--inactive-secondary{
-    background-color: var(--white);
+
+.button--inactive-secondary {
+  background-color: var(--white);
   @include text-style($font-family: Montserrat,
-      $weight: 700,
-      $size: 20px,
-      $line-height: 100%,
-      $letter-spacing: 0%,
-      $color: var(--primary));
+    $weight: 700,
+    $size: 20px,
+    $line-height: 100%,
+    $letter-spacing: 0%,
+    $color: var(--primary));
 }
 
 .button--inactive {
   background-color: var(--white);
 
-  @include text-style(
-    $font-family: Montserrat,
+  @include text-style($font-family: Montserrat,
     $weight: 400,
     $size: 15px,
     $line-height: 100%,
     $letter-spacing: 2.5%,
-    $color: var(--black)
-  );
+    $color: var(--black));
 }
 
 .button:disabled {
@@ -119,15 +117,14 @@ export default {
   width: 580px;
   height: 62px;
 
-  @include text-style(
-    $font-family: Comfortaa,
+  @include text-style($font-family: Comfortaa,
     $weight: 700,
     $size: 25px,
     $line-height: 100%,
     $letter-spacing: 0.5px,
-    $color: var(--white)
-  );
+    $color: var(--white));
 }
+
 .button--large--inactive {
   width: 580px;
   height: 62px;
@@ -144,7 +141,7 @@ export default {
   .button--medium {
     width: 180px;
     height: 44px;
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .button--large {
