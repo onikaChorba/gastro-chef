@@ -1,18 +1,15 @@
 <script setup>
-import Hero from "./components/Hero.vue";
-import Programs from "./components/Programs.vue";
-import Photos from "./components/Photos.vue";
-import OrderFAQ from "./components/OrderFAQ.vue";
 import Footer from './components/Footer.vue';
 import Layout from "./components/Layout.vue";
 </script>
 
 <template>
   <Layout>
-    <Hero />
-    <Programs />
-    <Photos />
-    <OrderFAQ />
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
     <Footer />
   </Layout>
 </template>
@@ -27,8 +24,19 @@ main {
   max-width: 1550px;
   margin: 0 auto;
 }
+
 section {
   margin: 0 auto;
-  max-width: 1286px;
+  max-width: 1550px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

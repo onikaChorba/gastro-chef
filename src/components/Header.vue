@@ -18,11 +18,11 @@
     <div class="header__logo-nav" :class="{ open: menuOpen }">
       <div class="header__nav-lang">
         <nav class="nav">
-          <a class="nav__item">Nutrition programs</a>
-          <a class="nav__item">Business lunch</a>
-          <a class="nav__item">Gastro Shop</a>
-          <a class="nav__item">About us</a>
-          <a class="nav__item">Blog</a>
+          <router-link class="nav__item" to="/programs">Nutrition programs</router-link>
+          <router-link class="nav__item" to="/business-lunch">Business lunch</router-link>
+          <router-link class="nav__item" to="/shop">Gastro Shop</router-link>
+          <router-link class="nav__item" to="/about">About us</router-link>
+          <router-link class="nav__item" to="/blog">Blog</router-link>
         </nav>
 
         <div class="header__lang-btns">

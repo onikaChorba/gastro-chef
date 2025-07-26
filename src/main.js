@@ -5,9 +5,11 @@ import MyCarousel from "@/components/UI/MyCarousel.vue";
 import MyInput from "@/components/UI/MyInput.vue";
 import MyCheckbox from "@/components/UI/MyCheckbox.vue";
 import MyList from "@/components/UI/MyList.vue";
+import router from "./router";
 import "./assets/main.css";
 
 const app = createApp(App);
+app.use(router);
 
 app.component("MyButton", MyButton);
 app.component("MyCarousel", MyCarousel);
