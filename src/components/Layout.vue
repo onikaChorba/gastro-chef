@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div :class="['layout', { 'with-bg': (route.path === '/' || route.path === '/about') }]">
     <Header />
     <main>
       <slot />
@@ -20,6 +20,10 @@
 <script setup>
 import Header from './Header.vue';
 import chat from '../assets/icons/chat.svg';
+
+import { useRoute } from 'vue-router';
+const route = useRoute();
+
 </script>
 
 <style lang="scss">
@@ -29,6 +33,9 @@ import chat from '../assets/icons/chat.svg';
   width: 100%;
   min-height: 100vh;
   height: 100%;
+}
+
+.layout.with-bg {
   background-image: url('../assets/icons/bg.svg');
   background-repeat: no-repeat;
   background-position: right top;
