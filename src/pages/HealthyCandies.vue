@@ -16,7 +16,6 @@
       </p>
     </div>
     <div class="container">
-
       <div class="buttons">
         <button class="back-btn"><img :src="arrow" alt="Back arrow" class="back-btn-icon" /> Back</button>
         <MyButton>Order</MyButton>
@@ -49,12 +48,15 @@
         </div>
       </div>
     </div>
+
+    <Photos />
   </div>
 </template>
 
 <script setup>
 import img from '../assets/imgs/sweet1.jpg';
 import arrow from '../assets/icons/arrow.svg';
+import Photos from '@/components/Photos.vue';
 </script>
 
 <style scoped lang="scss">

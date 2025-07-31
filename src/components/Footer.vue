@@ -44,7 +44,7 @@ import telegram from '@/assets/icons/telegram.svg';
   width: 100%;
   box-shadow: var(--shadow);
   padding: 20px;
-  background: #fff;
+  background: transparent;
 }
 
 .footer-content {

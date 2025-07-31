@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../pages/Home.vue";
-// import BusinessLunch from "../pages/BusinessLunch.vue";
+import BusinessLunch from "../pages/BusinessLunch.vue";
 import Shop from "../pages/Shop.vue";
 import About from "../pages/About.vue";
 import Blog from "../pages/Blog.vue";
@@ -13,7 +13,7 @@ const Empty = {
 const routes = [
   { path: "/", component: Home },
   { path: "/programs", component: Home },
-  { path: "/business-lunch", component: Empty },
+  { path: "/business-lunch", component: BusinessLunch },
   { path: "/shop", component: Shop },
   { path: "/shop/healthy-candies", component: HealthyCandies },
   { path: "/about", component: About },
