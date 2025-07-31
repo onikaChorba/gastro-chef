@@ -31,8 +31,9 @@ const route = useRoute();
 
 .layout {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 400px);
   height: 100%;
+  overflow: hidden;
 }
 
 .layout.with-bg {

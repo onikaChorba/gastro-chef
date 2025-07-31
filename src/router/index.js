@@ -6,10 +6,6 @@ import About from "../pages/About.vue";
 import Blog from "../pages/Blog.vue";
 import HealthyCandies from "@/pages/HealthyCandies.vue";
 
-const Empty = {
-  template: "<div>Page is under construction</div>",
-};
-
 const routes = [
   { path: "/", component: Home },
   { path: "/programs", component: Home },

@@ -14,6 +14,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import arrow from '@/assets/icons/arrow.svg'
 
 const props = defineProps({

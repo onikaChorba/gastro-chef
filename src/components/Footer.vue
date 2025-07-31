@@ -1,31 +1,36 @@
 <template>
-  <div class="footer">
-    <section class="footer-content">
-      <ul class="footer-content__links">
-        <li><a href="#Nutrition programs"> Nutrition programs</a></li>
-        <li><a href="#About us">About us</a></li>
-        <li><a href="#Business lunches">Business lunches</a></li>
-        <li><a href="#Gastro Shop">Gastro Shop</a></li>
-        <li><a href="#Blog">Blog</a></li>
-      </ul>
+  <div class="footer-wrapper">
+    <span class="ellips-1"></span>
+    <span class="ellips-2"></span>
+    <span class="ellips-3"></span>
+    <footer class="footer">
+      <section class="footer-content">
+        <ul class="footer-content__links">
+          <li><a href="#Nutrition programs"> Nutrition programs</a></li>
+          <li><a href="#About us">About us</a></li>
+          <li><a href="#Business lunches">Business lunches</a></li>
+          <li><a href="#Gastro Shop">Gastro Shop</a></li>
+          <li><a href="#Blog">Blog</a></li>
+        </ul>
 
-      <div class="footer-content__logo">
-        <img :src="logo" />
-        <p>healthy food service</p>
-      </div>
+        <div class="footer-content__logo">
+          <img :src="logo" />
+          <p>healthy food service</p>
+        </div>
 
-      <ul class="footer-content__links">
-        <li>Terms of cooperation</li>
-        <li>FAQ</li>
-        <li class="footer-content__link">
-          <img :src="insta" alt="insta" />
-          <img :src="fb" alt="fb" />
-          <img :src="viber" alt="viber" />
-          <img :src="telegram" alt="telegram" />
-        </li>
-        <li><span>+38 (068) 949 - 49 - 19</span></li>
-      </ul>
-    </section>
+        <ul class="footer-content__links">
+          <li>Terms of cooperation</li>
+          <li>FAQ</li>
+          <li class="footer-content__link">
+            <img :src="insta" alt="insta" />
+            <img :src="fb" alt="fb" />
+            <img :src="viber" alt="viber" />
+            <img :src="telegram" alt="telegram" />
+          </li>
+          <li><span>+38 (068) 949 - 49 - 19</span></li>
+        </ul>
+      </section>
+    </footer>
   </div>
 </template>
 
@@ -40,11 +45,53 @@ import telegram from '@/assets/icons/telegram.svg';
 <style lang="scss">
 @use '@/assets/styles/_mixins.scss' as *;
 
+.footer-wrapper {
+  position: relative;
+}
+
 .footer {
+  position: relative;
+  z-index: 2;
   width: 100%;
   box-shadow: var(--shadow);
   padding: 20px;
-  background: transparent;
+  background: var(--background-block);
+}
+
+.ellips-1 {
+  display: block;
+  position: absolute;
+  top: -100px;
+  left: -60px;
+  z-index: 0;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 30px solid rgba(100, 211, 112, 0.5)
+}
+
+.ellips-2 {
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: -60px;
+  z-index: 0;
+  width: 345px;
+  height: 345px;
+  border-radius: 50%;
+  border: 30px solid rgba(100, 211, 112, 0.5)
+}
+
+.ellips-3 {
+  display: block;
+  position: absolute;
+  top: -60px;
+  right: 40%;
+  z-index: 0;
+  width: 345px;
+  height: 345px;
+  border-radius: 50%;
+  border: 30px solid rgba(100, 211, 112, 0.5)
 }
 
 .footer-content {
